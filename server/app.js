@@ -19,24 +19,12 @@ app.get('/health', (_req, res) => {
   });
 });
 
-// ── Placeholder for future API routes ────────────────────────────────────────
-// app.use('/api/v1/earthquakes', require('./routes/earthquakeRoutes'));
+// ── API routes ───────────────────────────────────────────────────────────────
+app.use('/earthquakes', require('./routes/earthquakeRoutes'));
 
-// ── 404 handler ──────────────────────────────────────────────────────────────
-app.use((_req, res) => {
-  res.status(404).json({ success: false, message: 'Route not found.' });
-});
-
-// ── Global error handler ─────────────────────────────────────────────────────
-// eslint-disable-next-line no-unused-vars
-app.use((err, _req, res, _next) => {
-  const statusCode = err.statusCode || 500;
-  console.error(`[APP] ❌  ${err.stack || err.message}`);
-  res.status(statusCode).json({
-    success : false,
-    message : err.message || 'Internal Server Error',
-    ...(process.env.NODE_ENV === 'development' && { stack: err.stack }),
-  });
-});
+// ── Error Handling ───────────────────────────────────────────────────────────
+const { notFound, errorHandler } = require('./middlewares/errorMiddleware');
+app.use(notFound);
+app.use(errorHandler);
 
 module.exports = app;
