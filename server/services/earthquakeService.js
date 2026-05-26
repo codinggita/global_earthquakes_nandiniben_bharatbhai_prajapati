@@ -4,6 +4,8 @@ const mongoose    = require('mongoose');
 const Earthquake  = require('../models/Earthquake');
 const ApiError    = require('../utils/ApiError');
 const ApiResponse = require('../utils/ApiResponse');
+const getPagination = require('../utils/pagination');
+const buildFilter = require('../utils/filterBuilder');
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Helpers
@@ -21,74 +23,9 @@ const assertValidId = (id) => {
   }
 };
 
-/**
- * Parse and clamp pagination query params.
- *
- * @param {object} query       - Express req.query (or equivalent plain object)
- * @returns {{ page: number, limit: number, skip: number }}
- */
-const parsePagination = (query = {}) => {
-  const page  = Math.max(1, parseInt(query.page,  10) || 1);
-  const limit = Math.min(100, Math.max(1, parseInt(query.limit, 10) || 20));
-  return { page, limit, skip: (page - 1) * limit };
-};
+// Pagination parsing logic moved to reusable utils/pagination.js
 
-/**
- * Build a Mongoose filter object from query parameters.
- * Only appends a field when the caller actually provided a value.
- *
- * Supported filters:
- *   minMag, maxMag  → magnitude range
- *   country         → exact match (case-insensitive)
- *   status          → exact match
- *   type            → exact match
- *   net             → exact match
- *   tsunami         → boolean ("true" / "false" string accepted)
- *   startDate, endDate → time range (ISO-8601 strings)
- *
- * @param {object} query - Express req.query
- * @returns {object}     - Mongoose filter document
- */
-const buildFilter = (query = {}) => {
-  const filter = {};
-
-  // Exclude logically-deleted events by default
-  filter.status = { $ne: 'deleted' };
-
-  if (query.minMag !== undefined || query.maxMag !== undefined) {
-    filter.magnitude = {};
-    if (query.minMag !== undefined) filter.magnitude.$gte = parseFloat(query.minMag);
-    if (query.maxMag !== undefined) filter.magnitude.$lte = parseFloat(query.maxMag);
-  }
-
-  if (query.country) {
-    filter.country = { $regex: new RegExp(`^${query.country.trim()}$`, 'i') };
-  }
-
-  if (query.status) {
-    filter.status = query.status.toLowerCase().trim();
-  }
-
-  if (query.type) {
-    filter.type = query.type.toLowerCase().trim();
-  }
-
-  if (query.net) {
-    filter.net = query.net.toLowerCase().trim();
-  }
-
-  if (query.tsunami !== undefined) {
-    filter.tsunami = query.tsunami === 'true' || query.tsunami === true;
-  }
-
-  if (query.startDate || query.endDate) {
-    filter.time = {};
-    if (query.startDate) filter.time.$gte = new Date(query.startDate);
-    if (query.endDate)   filter.time.$lte = new Date(query.endDate);
-  }
-
-  return filter;
-};
+// Filtering logic moved to reusable utils/filterBuilder.js
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Service Functions
@@ -128,23 +65,24 @@ const createEarthquake = async (data) => {
  * @returns {Promise<ApiResponse>} 200 with array + pagination metadata
  */
 const getAllEarthquakes = async (query = {}) => {
-  const { page, limit, skip } = parsePagination(query);
   const filter = buildFilter(query);
+  
+  const totalRecords = await Earthquake.countDocuments(filter);
+  const { skip, limit, pagination } = getPagination(query, totalRecords);
 
   // Sorting — default: most recent first
   const sortField = query.sortBy    || 'time';
   const sortOrder = query.sortOrder === 'asc' ? 1 : -1;
   const sort      = { [sortField]: sortOrder };
 
-  const [earthquakes, total] = await Promise.all([
-    Earthquake.find(filter).sort(sort).skip(skip).limit(limit).lean(),
-    Earthquake.countDocuments(filter),
-  ]);
-
-  const pagination = ApiResponse.buildPagination(total, page, limit);
+  const earthquakes = await Earthquake.find(filter)
+    .sort(sort)
+    .skip(skip)
+    .limit(limit)
+    .lean();
 
   return ApiResponse.ok(
-    `${total} earthquake(s) retrieved successfully.`,
+    `${totalRecords} earthquake(s) retrieved successfully.`,
     earthquakes,
     pagination,
   );
