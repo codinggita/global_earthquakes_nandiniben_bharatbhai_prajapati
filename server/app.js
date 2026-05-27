@@ -21,6 +21,8 @@ app.get('/health', (_req, res) => {
 
 // ── API routes ───────────────────────────────────────────────────────────────
 app.use('/earthquakes', require('./routes/earthquakeRoutes'));
+app.use('/auth', require('./routes/authRoutes'));
+app.use('/analytics', require('./routes/analyticsRoutes'));
 
 // ── Error Handling ───────────────────────────────────────────────────────────
 const { notFound, errorHandler } = require('./middlewares/errorMiddleware');
