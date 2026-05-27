@@ -4,8 +4,7 @@ const mongoose    = require('mongoose');
 const Earthquake  = require('../models/Earthquake');
 const ApiError    = require('../utils/ApiError');
 const ApiResponse = require('../utils/ApiResponse');
-const getPagination = require('../utils/pagination');
-const buildFilter = require('../utils/filterBuilder');
+const QueryBuilder = require('../utils/queryBuilder');
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Helpers
@@ -65,26 +64,16 @@ const createEarthquake = async (data) => {
  * @returns {Promise<ApiResponse>} 200 with array + pagination metadata
  */
 const getAllEarthquakes = async (query = {}) => {
-  const filter = buildFilter(query);
+  const queryBuilder = new QueryBuilder(Earthquake, query);
   
-  const totalRecords = await Earthquake.countDocuments(filter);
-  const { skip, limit, pagination } = getPagination(query, totalRecords);
+  await queryBuilder.sort().paginate();
 
-  // Sorting — default: most recent first
-  const sortField = query.sortBy    || 'time';
-  const sortOrder = query.sortOrder === 'asc' ? 1 : -1;
-  const sort      = { [sortField]: sortOrder };
-
-  const earthquakes = await Earthquake.find(filter)
-    .sort(sort)
-    .skip(skip)
-    .limit(limit)
-    .lean();
+  const earthquakes = await queryBuilder.query.lean();
 
   return ApiResponse.ok(
-    `${totalRecords} earthquake(s) retrieved successfully.`,
+    `${queryBuilder.pagination.totalRecords} earthquake(s) retrieved successfully.`,
     earthquakes,
-    pagination,
+    queryBuilder.pagination,
   );
 };
 
