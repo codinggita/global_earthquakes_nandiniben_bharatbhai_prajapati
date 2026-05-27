@@ -8,20 +8,23 @@ const {
   getEarthquakeById,
   createEarthquake,
   updateEarthquake,
-  deleteEarthquake,
 } = require('../controllers/earthquakeController');
+
+const { protect, authorize } = require('../middlewares/authMiddleware');
+const validate = require('../middlewares/validate');
+const { createEarthquakeSchema, updateEarthquakeSchema } = require('../validators/earthquakeValidator');
 
 // ── Earthquake Routes ────────────────────────────────────────────────────────
 
 router
   .route('/')
   .get(getAllEarthquakes)
-  .post(createEarthquake);
+  .post(protect, authorize('admin'), validate(createEarthquakeSchema), createEarthquake);
 
 router
   .route('/:id')
   .get(getEarthquakeById)
-  .patch(updateEarthquake)
-  .delete(deleteEarthquake);
+  .patch(protect, authorize('admin'), validate(updateEarthquakeSchema), updateEarthquake)
+  .delete(protect, authorize('admin'), deleteEarthquake);
 
 module.exports = router;
