@@ -6,7 +6,9 @@
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon server.js",
-    "lint": "eslint . --ext .js"
+    "lint": "eslint . --ext .js",
+    "seed:import": "node data/seed.js --import",
+    "seed:delete": "node data/seed.js --delete"
   },
   "engines": {
     "node": ">=18.0.0"
@@ -16,6 +18,7 @@
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
+    "express-rate-limit": "^8.5.2",
     "joi": "^18.2.1",
     "jsonwebtoken": "^9.0.3",
     "mongoose": "^8.4.0"
