@@ -1,13 +1,18 @@
 'use strict';
 
-const express = require('express');
-const cors    = require('cors');
+const express       = require('express');
+const cors          = require('cors');
+const requestLogger = require('./middlewares/requestLogger');
 
 const app = express();
 
+// ── Request logger ──────────────────────────────────────────────────────────
+// Mount first so every request is timed from the moment it enters Express.
+app.use(requestLogger);
+
 // ── Core middleware ──────────────────────────────────────────────────────────
-app.use(cors());                              // allow cross-origin requests
-app.use(express.json());                      // parse JSON bodies
+app.use(cors());                                 // allow cross-origin requests
+app.use(express.json());                         // parse JSON bodies
 app.use(express.urlencoded({ extended: true })); // parse URL-encoded bodies
 
 // ── Health check ─────────────────────────────────────────────────────────────

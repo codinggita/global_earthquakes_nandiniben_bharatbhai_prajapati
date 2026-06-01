@@ -37,8 +37,19 @@ const getMonthlyTrends = asyncHandler(async (req, res) => {
   res.status(response.statusCode).json(response);
 });
 
+/**
+ * @desc    Get global earthquake statistics (averages, totals, extremes)
+ * @route   GET /api/analytics/stats
+ * @access  Public
+ */
+const getGlobalStats = asyncHandler(async (req, res) => {
+  const response = await analyticsService.getGlobalStats();
+  res.status(response.statusCode).json(response);
+});
+
 module.exports = {
   getHighestMagnitudeEarthquakes,
   getEarthquakesByCountry,
   getMonthlyTrends,
+  getGlobalStats,
 };
