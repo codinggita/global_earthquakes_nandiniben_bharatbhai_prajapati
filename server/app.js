@@ -3,6 +3,7 @@
 const express       = require('express');
 const cors          = require('cors');
 const requestLogger = require('./middlewares/requestLogger');
+const { authLimiter, analyticsLimiter, searchLimiter } = require('./middlewares/rateLimiter');
 
 const app = express();
 
@@ -25,9 +26,11 @@ app.get('/health', (_req, res) => {
 });
 
 // ── API routes ───────────────────────────────────────────────────────────────
-app.use('/earthquakes', require('./routes/earthquakeRoutes'));
-app.use('/auth', require('./routes/authRoutes'));
-app.use('/analytics', require('./routes/analyticsRoutes'));
+// Rate limiters are applied per-prefix so every current and future route
+// under that prefix is automatically protected.
+app.use('/earthquakes', searchLimiter,   require('./routes/earthquakeRoutes'));
+app.use('/auth',        authLimiter,     require('./routes/authRoutes'));
+app.use('/analytics',   analyticsLimiter, require('./routes/analyticsRoutes'));
 
 // ── Error Handling ───────────────────────────────────────────────────────────
 const { notFound, errorHandler } = require('./middlewares/errorMiddleware');
