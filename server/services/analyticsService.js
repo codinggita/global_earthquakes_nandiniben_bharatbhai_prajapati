@@ -149,8 +149,118 @@ const getMonthlyTrends = async () => {
   );
 };
 
+/**
+ * Get global earthquake statistics using a single MongoDB aggregation pipeline.
+ * Uses $facet to execute all sub-pipelines in one round-trip.
+ *
+ * Stats returned:
+ *   - averageMagnitude  — mean of all magnitude values (rounded to 2 d.p.)
+ *   - averageDepth      — mean of all depth values      (rounded to 2 d.p.)
+ *   - totalCount        — total number of earthquake documents
+ *   - deepestEarthquake — document with the greatest depth
+ *   - highestMagnitude  — document with the greatest magnitude
+ *
+ * @returns {Promise<ApiResponse>} 200 OK with the statistics object
+ */
+const getGlobalStats = async () => {
+  const [result] = await Earthquake.aggregate([
+    // ── Stage 1: $match ─────────────────────────────────────────────────────
+    // Exclude soft-deleted records so stats reflect only valid events.
+    { $match: { status: { $ne: 'deleted' } } },
+
+    // ── Stage 2: $facet ─────────────────────────────────────────────────────
+    // Run all five sub-pipelines in parallel within a single aggregation.
+    {
+      $facet: {
+
+        // ── 2a. Summary scalars (count + averages) ─────────────────────────
+        summary: [
+          {
+            $group: {
+              _id:              null,
+              totalCount:       { $sum: 1 },
+              averageMagnitude: { $avg: '$magnitude' },
+              averageDepth:     { $avg: '$depth' },
+            },
+          },
+          {
+            $project: {
+              _id:              0,
+              totalCount:       1,
+              averageMagnitude: { $round: ['$averageMagnitude', 2] },
+              averageDepth:     { $round: ['$averageDepth',     2] },
+            },
+          },
+        ],
+
+        // ── 2b. Deepest earthquake ─────────────────────────────────────────
+        deepestEarthquake: [
+          { $sort: { depth: -1 } },
+          { $limit: 1 },
+          {
+            $project: {
+              _id:       1,
+              magnitude: 1,
+              place:     1,
+              country:   1,
+              depth:     1,
+              time:      1,
+              latitude:  1,
+              longitude: 1,
+            },
+          },
+        ],
+
+        // ── 2c. Highest magnitude earthquake ──────────────────────────────
+        highestMagnitude: [
+          { $sort: { magnitude: -1 } },
+          { $limit: 1 },
+          {
+            $project: {
+              _id:       1,
+              magnitude: 1,
+              place:     1,
+              country:   1,
+              depth:     1,
+              time:      1,
+              latitude:  1,
+              longitude: 1,
+            },
+          },
+        ],
+      },
+    },
+
+    // ── Stage 3: $project ───────────────────────────────────────────────────
+    // Flatten the $facet output into a clean, single-level response object.
+    {
+      $project: {
+        averageMagnitude:  { $arrayElemAt: ['$summary.averageMagnitude',  0] },
+        averageDepth:      { $arrayElemAt: ['$summary.averageDepth',      0] },
+        totalCount:        { $arrayElemAt: ['$summary.totalCount',        0] },
+        deepestEarthquake: { $arrayElemAt: ['$deepestEarthquake',         0] },
+        highestMagnitude:  { $arrayElemAt: ['$highestMagnitude',          0] },
+      },
+    },
+  ]);
+
+  // Guard: aggregation returns empty array when the collection is empty
+  if (!result) {
+    return ApiResponse.ok('No earthquake data found.', {
+      averageMagnitude:  null,
+      averageDepth:      null,
+      totalCount:        0,
+      deepestEarthquake: null,
+      highestMagnitude:  null,
+    });
+  }
+
+  return ApiResponse.ok('Global earthquake statistics retrieved successfully.', result);
+};
+
 module.exports = {
   getHighestMagnitudeEarthquakes,
   getEarthquakesByCountry,
   getMonthlyTrends,
+  getGlobalStats,
 };

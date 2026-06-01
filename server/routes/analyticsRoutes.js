@@ -3,7 +3,7 @@
 const express = require('express');
 const router = express.Router();
 
-const { getHighestMagnitudeEarthquakes, getEarthquakesByCountry, getMonthlyTrends } = require('../controllers/analyticsController');
+const { getHighestMagnitudeEarthquakes, getEarthquakesByCountry, getMonthlyTrends, getGlobalStats } = require('../controllers/analyticsController');
 
 // ── Analytics Routes ─────────────────────────────────────────────────────────
 
@@ -26,5 +26,13 @@ router.get('/by-country', getEarthquakesByCountry);
  * Aggregation stages used: $group ($year/$month) → $sort → $project
  */
 router.get('/monthly-trends', getMonthlyTrends);
+
+/**
+ * GET /api/analytics/stats
+ * Returns global statistics: average magnitude, average depth, total count,
+ * deepest earthquake, and highest magnitude earthquake.
+ * Aggregation stages used: $match → $facet ($group, $sort, $limit, $project) → $project
+ */
+router.get('/stats', getGlobalStats);
 
 module.exports = router;
