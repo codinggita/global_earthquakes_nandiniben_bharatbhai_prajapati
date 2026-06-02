@@ -8,6 +8,7 @@ const {
   getEarthquakeById,
   createEarthquake,
   updateEarthquake,
+  deleteEarthquake
 } = require('../controllers/earthquakeController');
 
 const { protect, authorize } = require('../middlewares/authMiddleware');
