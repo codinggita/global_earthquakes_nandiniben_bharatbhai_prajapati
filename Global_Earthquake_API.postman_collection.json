@@ -1,0 +1,5127 @@
+{
+  "info": {
+    "name": "Global Earthquake API (All Routes)",
+    "description": "Comprehensive Postman Collection encompassing all API routes requested.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{token}}",
+        "type": "string"
+      }
+    ]
+  },
+  "item": [
+    {
+      "name": "Basic CRUD Routes",
+      "item": [
+        {
+          "name": "Fetch all earthquake records",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Fetch earthquake using ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes",
+                ":id"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Add new earthquake record",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Replace complete earthquake record",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes",
+                ":id"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update specific earthquake fields",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes",
+                ":id"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete earthquake record",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes",
+                ":id"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Check earthquake record existence",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes/exists/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes",
+                "exists",
+                ":id"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Insert multiple earthquake records",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes/bulk-create",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes",
+                "bulk-create"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update multiple earthquake records",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes/bulk-update",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes",
+                "bulk-update"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete multiple earthquake records",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes/bulk-delete",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes",
+                "bulk-delete"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Earthquake Information Routes",
+      "item": [
+        {
+          "name": "Fetch earthquakes by place",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes/place/:place",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes",
+                "place",
+                ":place"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Fetch earthquakes by country",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes/country/:country",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes",
+                "country",
+                ":country"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Fetch earthquakes by disaster type",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes/type/:type",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes",
+                "type",
+                ":type"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Fetch earthquakes by review status",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes/status/:status",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes",
+                "status",
+                ":status"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Fetch earthquakes by magnitude type",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes/mag-type/:magType",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes",
+                "mag-type",
+                ":magType"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Fetch earthquakes by seismic network",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes/network/:net",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes",
+                "network",
+                ":net"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Fetch high magnitude earthquakes",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes/high-magnitude",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes",
+                "high-magnitude"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Fetch deep earthquakes",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes/deep",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes",
+                "deep"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Fetch shallow earthquakes",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes/shallow",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes",
+                "shallow"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Fetch recent earthquake records",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes/recent",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes",
+                "recent"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Fetch reviewed earthquake records",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes/reviewed",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes",
+                "reviewed"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Fetch earthquakes with high seismic gap",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes/high-gap",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes",
+                "high-gap"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Fetch earthquakes with high RMS values",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes/high-rms",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes",
+                "high-rms"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Fetch oceanic earthquakes",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes/oceanic",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes",
+                "oceanic"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Fetch critical earthquake events",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes/critical",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes",
+                "critical"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Route Parameters Practice",
+      "item": [
+        {
+          "name": "Fetch earthquake using route parameter",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes",
+                ":id"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Fetch earthquakes using place parameter",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes/place/:place",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes",
+                "place",
+                ":place"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Fetch earthquakes using country parameter",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes/country/:country",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes",
+                "country",
+                ":country"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Fetch earthquakes using type parameter",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes/type/:type",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes",
+                "type",
+                ":type"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Fetch earthquakes using review status",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes/status/:status",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes",
+                "status",
+                ":status"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Fetch earthquakes using magnitude value",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes/magnitude/:mag",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes",
+                "magnitude",
+                ":mag"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Fetch earthquakes using depth value",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes/depth/:depth",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes",
+                "depth",
+                ":depth"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Fetch earthquakes using seismic network",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes/network/:net",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes",
+                "network",
+                ":net"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Fetch earthquakes using magnitude type",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes/mag-type/:magType",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes",
+                "mag-type",
+                ":magType"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Fetch earthquakes using date",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes/date/:date",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes",
+                "date",
+                ":date"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Fetch earthquakes using year",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes/year/:year",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes",
+                "year",
+                ":year"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Fetch earthquakes using month",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes/month/:month",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes",
+                "month",
+                ":month"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Query Parameters",
+      "item": [
+        {
+          "name": "Filter earthquakes by country",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes?country=Japan",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes"
+              ],
+              "query": [
+                {
+                  "key": "country",
+                  "value": "Japan"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Filter earthquakes by review status",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes?status=reviewed",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes"
+              ],
+              "query": [
+                {
+                  "key": "status",
+                  "value": "reviewed"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Filter earthquakes by magnitude type",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes?magType=mb",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes"
+              ],
+              "query": [
+                {
+                  "key": "magType",
+                  "value": "mb"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Filter earthquakes using minimum magnitude",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes?minMagnitude=4.5",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes"
+              ],
+              "query": [
+                {
+                  "key": "minMagnitude",
+                  "value": "4.5"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Filter earthquakes using maximum magnitude",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes?maxMagnitude=7",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes"
+              ],
+              "query": [
+                {
+                  "key": "maxMagnitude",
+                  "value": "7"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Filter earthquakes using minimum depth",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes?minDepth=50",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes"
+              ],
+              "query": [
+                {
+                  "key": "minDepth",
+                  "value": "50"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Filter earthquakes using maximum depth",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes?maxDepth=300",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes"
+              ],
+              "query": [
+                {
+                  "key": "maxDepth",
+                  "value": "300"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Filter earthquakes using seismic network",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes?network=us",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes"
+              ],
+              "query": [
+                {
+                  "key": "network",
+                  "value": "us"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Filter earthquakes using year",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes?year=2015",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes"
+              ],
+              "query": [
+                {
+                  "key": "year",
+                  "value": "2015"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Filter earthquakes using month",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes?month=12",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes"
+              ],
+              "query": [
+                {
+                  "key": "month",
+                  "value": "12"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Filter earthquakes using place",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes?place=Indonesia",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes"
+              ],
+              "query": [
+                {
+                  "key": "place",
+                  "value": "Indonesia"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Filter earthquakes using seismic gap",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes?minGap=50",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes"
+              ],
+              "query": [
+                {
+                  "key": "minGap",
+                  "value": "50"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Pagination Routes",
+      "item": [
+        {
+          "name": "Fetch paginated earthquake records",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes?page=1&limit=10",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Fetch second page of earthquake records",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes?page=2&limit=20",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "2"
+                },
+                {
+                  "key": "limit",
+                  "value": "20"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Paginate high magnitude earthquakes",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes/high-magnitude?page=1&limit=10",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes",
+                "high-magnitude"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Paginate recent earthquake records",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes/recent?page=1&limit=15",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes",
+                "recent"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "15"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Paginate country based earthquake records",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes/country/Japan?page=1&limit=10",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes",
+                "country",
+                "Japan"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Paginate place based earthquake records",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes/place/Indonesia?page=1&limit=10",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes",
+                "place",
+                "Indonesia"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Paginate reviewed earthquake records",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes/status/reviewed?page=2&limit=20",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes",
+                "status",
+                "reviewed"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "2"
+                },
+                {
+                  "key": "limit",
+                  "value": "20"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Paginate deep earthquake records",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes/deep?page=1&limit=15",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes",
+                "deep"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "15"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Sorting Routes",
+      "item": [
+        {
+          "name": "Sort earthquakes by magnitude",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes?sort=magnitude",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes"
+              ],
+              "query": [
+                {
+                  "key": "sort",
+                  "value": "magnitude"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Sort earthquakes by depth",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes?sort=depth",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes"
+              ],
+              "query": [
+                {
+                  "key": "sort",
+                  "value": "depth"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Sort earthquakes by occurrence time",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes?sort=time",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes"
+              ],
+              "query": [
+                {
+                  "key": "sort",
+                  "value": "time"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Sort earthquakes by seismic gap",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes?sort=gap",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes"
+              ],
+              "query": [
+                {
+                  "key": "sort",
+                  "value": "gap"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Sort earthquakes by RMS value",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes?sort=rms",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes"
+              ],
+              "query": [
+                {
+                  "key": "sort",
+                  "value": "rms"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Sort earthquakes by horizontal error",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes?sort=horizontalError",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes"
+              ],
+              "query": [
+                {
+                  "key": "sort",
+                  "value": "horizontalError"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Sort earthquakes by depth error",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes?sort=depthError",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes"
+              ],
+              "query": [
+                {
+                  "key": "sort",
+                  "value": "depthError"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Sort earthquakes alphabetically by place",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes?sort=place",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes"
+              ],
+              "query": [
+                {
+                  "key": "sort",
+                  "value": "place"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Sort highest magnitude earthquakes first",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes/sort/magnitude-desc",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes",
+                "sort",
+                "magnitude-desc"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Sort latest earthquakes first",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes/sort/time-desc",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes",
+                "sort",
+                "time-desc"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Search Routes",
+      "item": [
+        {
+          "name": "Search earthquakes using keyword",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/search/earthquakes?q=japan",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "search",
+                "earthquakes"
+              ],
+              "query": [
+                {
+                  "key": "q",
+                  "value": "japan"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Search earthquakes by place",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/search/earthquakes?q=indonesia",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "search",
+                "earthquakes"
+              ],
+              "query": [
+                {
+                  "key": "q",
+                  "value": "indonesia"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Search earthquakes by status",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/search/earthquakes?q=reviewed",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "search",
+                "earthquakes"
+              ],
+              "query": [
+                {
+                  "key": "q",
+                  "value": "reviewed"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Search earthquake type records",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/search/earthquakes?q=earthquake",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "search",
+                "earthquakes"
+              ],
+              "query": [
+                {
+                  "key": "q",
+                  "value": "earthquake"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Search earthquakes by magnitude type",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/search/earthquakes?q=mb",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "search",
+                "earthquakes"
+              ],
+              "query": [
+                {
+                  "key": "q",
+                  "value": "mb"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Search deep earthquake records",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/search/earthquakes?q=deep",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "search",
+                "earthquakes"
+              ],
+              "query": [
+                {
+                  "key": "q",
+                  "value": "deep"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Search critical earthquake events",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/search/earthquakes?q=critical",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "search",
+                "earthquakes"
+              ],
+              "query": [
+                {
+                  "key": "q",
+                  "value": "critical"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Search earthquakes by seismic network",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/search/earthquakes?q=us",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "search",
+                "earthquakes"
+              ],
+              "query": [
+                {
+                  "key": "q",
+                  "value": "us"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Search high magnitude earthquakes",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/search/earthquakes?q=high-magnitude",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "search",
+                "earthquakes"
+              ],
+              "query": [
+                {
+                  "key": "q",
+                  "value": "high-magnitude"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Search seismic gap related records",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/search/earthquakes?q=gap",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "search",
+                "earthquakes"
+              ],
+              "query": [
+                {
+                  "key": "q",
+                  "value": "gap"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Filtering Routes",
+      "item": [
+        {
+          "name": "Fetch high magnitude earthquakes",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes/filter/high-magnitude",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes",
+                "filter",
+                "high-magnitude"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Fetch low magnitude earthquakes",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes/filter/low-magnitude",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes",
+                "filter",
+                "low-magnitude"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Fetch deep earthquakes",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes/filter/deep",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes",
+                "filter",
+                "deep"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Fetch shallow earthquakes",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes/filter/shallow",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes",
+                "filter",
+                "shallow"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Fetch earthquakes with high seismic gap",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes/filter/high-gap",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes",
+                "filter",
+                "high-gap"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Fetch earthquakes with high RMS values",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes/filter/high-rms",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes",
+                "filter",
+                "high-rms"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Fetch reviewed earthquake records",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes/filter/reviewed",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes",
+                "filter",
+                "reviewed"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Fetch oceanic earthquakes",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes/filter/oceanic",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes",
+                "filter",
+                "oceanic"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Fetch recent earthquakes",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes/filter/recent",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes",
+                "filter",
+                "recent"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Fetch critical earthquake events",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes/filter/critical",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes",
+                "filter",
+                "critical"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Analytics Routes",
+      "item": [
+        {
+          "name": "Analyze highest magnitude earthquakes",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/analytics/earthquakes/highest-magnitude",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "analytics",
+                "earthquakes",
+                "highest-magnitude"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Analyze deepest earthquakes",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/analytics/earthquakes/deepest",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "analytics",
+                "earthquakes",
+                "deepest"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Analyze recent seismic activity",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/analytics/earthquakes/recent-activity",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "analytics",
+                "earthquakes",
+                "recent-activity"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Analyze earthquake locations",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/analytics/earthquakes/location-analysis",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "analytics",
+                "earthquakes",
+                "location-analysis"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Analyze country wise earthquake distribution",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/analytics/earthquakes/country-analysis",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "analytics",
+                "earthquakes",
+                "country-analysis"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Analyze seismic network distribution",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/analytics/earthquakes/network-analysis",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "analytics",
+                "earthquakes",
+                "network-analysis"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Analyze earthquake magnitudes",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/analytics/earthquakes/magnitude-analysis",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "analytics",
+                "earthquakes",
+                "magnitude-analysis"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Analyze earthquake depth distribution",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/analytics/earthquakes/depth-analysis",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "analytics",
+                "earthquakes",
+                "depth-analysis"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Analyze earthquake error values",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/analytics/earthquakes/error-analysis",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "analytics",
+                "earthquakes",
+                "error-analysis"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Analyze monthly earthquake trends",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/analytics/earthquakes/monthly-analysis",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "analytics",
+                "earthquakes",
+                "monthly-analysis"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Statistics Routes",
+      "item": [
+        {
+          "name": "Count total earthquake records",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/stats/earthquakes/count",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "stats",
+                "earthquakes",
+                "count"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Fetch highest magnitude earthquake",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/stats/earthquakes/highest-magnitude",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "stats",
+                "earthquakes",
+                "highest-magnitude"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Fetch deepest earthquake",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/stats/earthquakes/deepest",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "stats",
+                "earthquakes",
+                "deepest"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Calculate average earthquake depth",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/stats/earthquakes/average-depth",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "stats",
+                "earthquakes",
+                "average-depth"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Calculate average earthquake magnitude",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/stats/earthquakes/average-magnitude",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "stats",
+                "earthquakes",
+                "average-magnitude"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Count earthquakes by country",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/stats/earthquakes/country-count",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "stats",
+                "earthquakes",
+                "country-count"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Count earthquake types",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/stats/earthquakes/type-count",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "stats",
+                "earthquakes",
+                "type-count"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Count seismic network records",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/stats/earthquakes/network-count",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "stats",
+                "earthquakes",
+                "network-count"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Count reviewed earthquake records",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/stats/earthquakes/reviewed-count",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "stats",
+                "earthquakes",
+                "reviewed-count"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Count monthly earthquake records",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/stats/earthquakes/monthly-count",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "stats",
+                "earthquakes",
+                "monthly-count"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Combination Query Routes",
+      "item": [
+        {
+          "name": "Filter earthquakes by country and sort by magnitude",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes?country=Japan&sort=magnitude",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes"
+              ],
+              "query": [
+                {
+                  "key": "country",
+                  "value": "Japan"
+                },
+                {
+                  "key": "sort",
+                  "value": "magnitude"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Filter earthquakes by place and sort by depth",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes?place=Indonesia&sort=depth",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes"
+              ],
+              "query": [
+                {
+                  "key": "place",
+                  "value": "Indonesia"
+                },
+                {
+                  "key": "sort",
+                  "value": "depth"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Filter reviewed earthquakes and sort by time",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes?status=reviewed&sort=time",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes"
+              ],
+              "query": [
+                {
+                  "key": "status",
+                  "value": "reviewed"
+                },
+                {
+                  "key": "sort",
+                  "value": "time"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Filter earthquakes by magnitude type and sort results",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes?magType=mb&sort=magnitude",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes"
+              ],
+              "query": [
+                {
+                  "key": "magType",
+                  "value": "mb"
+                },
+                {
+                  "key": "sort",
+                  "value": "magnitude"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Filter earthquakes by seismic network and sort by depth",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes?network=us&sort=depth",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes"
+              ],
+              "query": [
+                {
+                  "key": "network",
+                  "value": "us"
+                },
+                {
+                  "key": "sort",
+                  "value": "depth"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Filter high magnitude earthquakes and sort records",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes?minMagnitude=4.5&sort=magnitude",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes"
+              ],
+              "query": [
+                {
+                  "key": "minMagnitude",
+                  "value": "4.5"
+                },
+                {
+                  "key": "sort",
+                  "value": "magnitude"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Filter shallow earthquakes and sort records",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes?maxDepth=100&sort=depth",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes"
+              ],
+              "query": [
+                {
+                  "key": "maxDepth",
+                  "value": "100"
+                },
+                {
+                  "key": "sort",
+                  "value": "depth"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Filter deep earthquakes and sort records",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes?minDepth=100&sort=depth",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes"
+              ],
+              "query": [
+                {
+                  "key": "minDepth",
+                  "value": "100"
+                },
+                {
+                  "key": "sort",
+                  "value": "depth"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Paginate country based earthquake records",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes?country=Japan&page=1&limit=10",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes"
+              ],
+              "query": [
+                {
+                  "key": "country",
+                  "value": "Japan"
+                },
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Paginate place based earthquake records",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes?place=Indonesia&page=1&limit=15",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes"
+              ],
+              "query": [
+                {
+                  "key": "place",
+                  "value": "Indonesia"
+                },
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "15"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Paginate sorted magnitude records",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes?sort=magnitude&page=1&limit=10",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes"
+              ],
+              "query": [
+                {
+                  "key": "sort",
+                  "value": "magnitude"
+                },
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Paginate sorted depth records",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes?sort=depth&page=2&limit=15",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes"
+              ],
+              "query": [
+                {
+                  "key": "sort",
+                  "value": "depth"
+                },
+                {
+                  "key": "page",
+                  "value": "2"
+                },
+                {
+                  "key": "limit",
+                  "value": "15"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Combine filtering, sorting, and pagination",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes?country=Japan&sort=magnitude&page=1&limit=10",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes"
+              ],
+              "query": [
+                {
+                  "key": "country",
+                  "value": "Japan"
+                },
+                {
+                  "key": "sort",
+                  "value": "magnitude"
+                },
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Combine place filtering and sorting",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes?place=Indonesia&sort=depth&page=1&limit=10",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes"
+              ],
+              "query": [
+                {
+                  "key": "place",
+                  "value": "Indonesia"
+                },
+                {
+                  "key": "sort",
+                  "value": "depth"
+                },
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Combine review status filtering and sorting",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes?status=reviewed&sort=time&page=1&limit=15",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes"
+              ],
+              "query": [
+                {
+                  "key": "status",
+                  "value": "reviewed"
+                },
+                {
+                  "key": "sort",
+                  "value": "time"
+                },
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "15"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Combine network filtering and sorting",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes?network=us&sort=depth&page=1&limit=20",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes"
+              ],
+              "query": [
+                {
+                  "key": "network",
+                  "value": "us"
+                },
+                {
+                  "key": "sort",
+                  "value": "depth"
+                },
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "20"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Combine magnitude filtering and sorting",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes?minMagnitude=4.5&sort=magnitude&page=1&limit=10",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes"
+              ],
+              "query": [
+                {
+                  "key": "minMagnitude",
+                  "value": "4.5"
+                },
+                {
+                  "key": "sort",
+                  "value": "magnitude"
+                },
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Combine country and magnitude filtering",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes?country=Japan&minMagnitude=5&sort=magnitude&page=1&limit=10",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes"
+              ],
+              "query": [
+                {
+                  "key": "country",
+                  "value": "Japan"
+                },
+                {
+                  "key": "minMagnitude",
+                  "value": "5"
+                },
+                {
+                  "key": "sort",
+                  "value": "magnitude"
+                },
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Combine place and depth filtering",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes?place=Indonesia&minDepth=100&sort=depth&page=1&limit=10",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes"
+              ],
+              "query": [
+                {
+                  "key": "place",
+                  "value": "Indonesia"
+                },
+                {
+                  "key": "minDepth",
+                  "value": "100"
+                },
+                {
+                  "key": "sort",
+                  "value": "depth"
+                },
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Combine review status and magnitude analytics",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes?status=reviewed&minMagnitude=4.5&sort=time&page=1&limit=10",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes"
+              ],
+              "query": [
+                {
+                  "key": "status",
+                  "value": "reviewed"
+                },
+                {
+                  "key": "minMagnitude",
+                  "value": "4.5"
+                },
+                {
+                  "key": "sort",
+                  "value": "time"
+                },
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Combine network and seismic gap analytics",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes?network=us&minGap=50&sort=gap&page=1&limit=10",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes"
+              ],
+              "query": [
+                {
+                  "key": "network",
+                  "value": "us"
+                },
+                {
+                  "key": "minGap",
+                  "value": "50"
+                },
+                {
+                  "key": "sort",
+                  "value": "gap"
+                },
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Combine country and shallow earthquake analytics",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes?country=Chile&maxDepth=80&sort=magnitude&page=1&limit=15",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes"
+              ],
+              "query": [
+                {
+                  "key": "country",
+                  "value": "Chile"
+                },
+                {
+                  "key": "maxDepth",
+                  "value": "80"
+                },
+                {
+                  "key": "sort",
+                  "value": "magnitude"
+                },
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "15"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Combine country and review status filtering",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes?country=Japan&status=reviewed&sort=time&page=1&limit=10",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes"
+              ],
+              "query": [
+                {
+                  "key": "country",
+                  "value": "Japan"
+                },
+                {
+                  "key": "status",
+                  "value": "reviewed"
+                },
+                {
+                  "key": "sort",
+                  "value": "time"
+                },
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Zealand&minMagnitude=4.5&sort=magnitude&page=1&limit=10\tCombine place and magnitude filtering",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes?place=New",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes"
+              ],
+              "query": [
+                {
+                  "key": "place",
+                  "value": "New"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Combine seismic network and review status analytics",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes?network=us&status=reviewed&sort=time&page=1&limit=20",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes"
+              ],
+              "query": [
+                {
+                  "key": "network",
+                  "value": "us"
+                },
+                {
+                  "key": "status",
+                  "value": "reviewed"
+                },
+                {
+                  "key": "sort",
+                  "value": "time"
+                },
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "20"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Combine multiple depth filters with sorting",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes?country=Indonesia&minDepth=50&maxDepth=300&sort=depth&page=1&limit=10",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes"
+              ],
+              "query": [
+                {
+                  "key": "country",
+                  "value": "Indonesia"
+                },
+                {
+                  "key": "minDepth",
+                  "value": "50"
+                },
+                {
+                  "key": "maxDepth",
+                  "value": "300"
+                },
+                {
+                  "key": "sort",
+                  "value": "depth"
+                },
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Combine magnitude and seismic gap analytics",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes?country=Japan&minMagnitude=5&minGap=50&sort=magnitude&page=1&limit=10",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes"
+              ],
+              "query": [
+                {
+                  "key": "country",
+                  "value": "Japan"
+                },
+                {
+                  "key": "minMagnitude",
+                  "value": "5"
+                },
+                {
+                  "key": "minGap",
+                  "value": "50"
+                },
+                {
+                  "key": "sort",
+                  "value": "magnitude"
+                },
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "New Guinea&minRms=0.5&sort=rms&page=1&limit=10\tCombine place and RMS analytics",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes?place=Papua",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes"
+              ],
+              "query": [
+                {
+                  "key": "place",
+                  "value": "Papua"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Middleware Routes",
+      "item": [
+        {
+          "name": "Admin protected route for earthquake management",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/admin/earthquakes",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "admin",
+                "earthquakes"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Admin protected analytics dashboard",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/admin/analytics",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "admin",
+                "analytics"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Admin protected reports route",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/admin/reports",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "admin",
+                "reports"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Protected route to add earthquake records",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/protected/earthquakes",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "protected",
+                "earthquakes"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Protected route to update earthquake records",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/protected/earthquakes/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "protected",
+                "earthquakes",
+                ":id"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Protected route to delete earthquake records",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/protected/earthquakes/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "protected",
+                "earthquakes",
+                ":id"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Practice request logging middleware",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/middleware/logger",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "middleware",
+                "logger"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Practice authentication middleware",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/middleware/auth",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "middleware",
+                "auth"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Practice API rate limiting middleware",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/middleware/rate-limit",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "middleware",
+                "rate-limit"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Practice global error handling middleware",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/middleware/error-handler",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "middleware",
+                "error-handler"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Practice request timing middleware",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/middleware/request-time",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "middleware",
+                "request-time"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Practice API caching middleware",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/middleware/cache",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "middleware",
+                "cache"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Authentication Routes",
+      "item": [
+        {
+          "name": "Register new user account",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/auth/register",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "auth",
+                "register"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "const jsonData = pm.response.json();",
+                  "if (jsonData && jsonData.data && jsonData.data.token) {",
+                  "    pm.collectionVariables.set(\"token\", jsonData.data.token);",
+                  "    console.log(\"Token automatically saved to collection variables!\");",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Login existing user",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/auth/login",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "auth",
+                "login"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "const jsonData = pm.response.json();",
+                  "if (jsonData && jsonData.data && jsonData.data.token) {",
+                  "    pm.collectionVariables.set(\"token\", jsonData.data.token);",
+                  "    console.log(\"Token automatically saved to collection variables!\");",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Logout authenticated user",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/auth/logout",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "auth",
+                "logout"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Fetch authenticated user profile",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/auth/profile",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "auth",
+                "profile"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update authenticated profile",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/auth/profile",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "auth",
+                "profile"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Request password reset",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/auth/forgot-password",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "auth",
+                "forgot-password"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Reset forgotten password",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/auth/reset-password",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "auth",
+                "reset-password"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Change current password",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/auth/change-password",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "auth",
+                "change-password"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Verify registered email address",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/auth/verify-email",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "auth",
+                "verify-email"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Send OTP verification code",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/auth/send-otp",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "auth",
+                "send-otp"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "JWT Authentication Routes",
+      "item": [
+        {
+          "name": "Access JWT protected profile",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/jwt/profile",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "jwt",
+                "profile"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Access JWT protected dashboard",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/jwt/dashboard",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "jwt",
+                "dashboard"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Generate JWT token",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/jwt/generate-token",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "jwt",
+                "generate-token"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Verify JWT token",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/jwt/verify-token",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "jwt",
+                "verify-token"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Refresh JWT access token",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/jwt/refresh-token",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "jwt",
+                "refresh-token"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Revoke JWT token",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/jwt/revoke-token",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "jwt",
+                "revoke-token"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Access protected earthquake records",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/jwt/private-earthquakes",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "jwt",
+                "private-earthquakes"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Access protected analytics routes",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/jwt/private-analytics",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "jwt",
+                "private-analytics"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Error Handling Routes",
+      "item": [
+        {
+          "name": "Return 404 if earthquake record not found",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes",
+                ":id"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Return 400 if required fields missing",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Return validation error",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes",
+                ":id"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Return proper delete response",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes",
+                ":id"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Return 401 if unauthorized",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/admin/earthquakes",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "admin",
+                "earthquakes"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Handle invalid magnitude values",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes/magnitude/abc",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes",
+                "magnitude",
+                "abc"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Handle invalid depth values",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes/depth/invalid",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes",
+                "depth",
+                "invalid"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Handle invalid country requests",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes/country/unknown",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes",
+                "country",
+                "unknown"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Handle invalid pagination requests",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes?page=-1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "-1"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Handle empty search requests",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/search/earthquakes?q=",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "search",
+                "earthquakes"
+              ],
+              "query": [
+                {
+                  "key": "q",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Handle invalid JSON uploads",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes/import-json",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes",
+                "import-json"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Handle invalid status values",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes/status/invalid",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes",
+                "status",
+                "invalid"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Request Validation",
+      "item": [
+        {
+          "name": "Validate required earthquake fields",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Validate magnitude values",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Validate depth values",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Validate latitude values",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Validate longitude values",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Validate RMS values",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Validate seismic gap values",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Validate review status values",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Validate updated earthquake data",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes",
+                ":id"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Validate email and password",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/auth/register",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "auth",
+                "register"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "const jsonData = pm.response.json();",
+                  "if (jsonData && jsonData.data && jsonData.data.token) {",
+                  "    pm.collectionVariables.set(\"token\", jsonData.data.token);",
+                  "    console.log(\"Token automatically saved to collection variables!\");",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Validate login credentials",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/auth/login",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "auth",
+                "login"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "const jsonData = pm.response.json();",
+                  "if (jsonData && jsonData.data && jsonData.data.token) {",
+                  "    pm.collectionVariables.set(\"token\", jsonData.data.token);",
+                  "    console.log(\"Token automatically saved to collection variables!\");",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Validate uploaded JSON structure",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes/import-json",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes",
+                "import-json"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "API Rate Limiting",
+      "item": [
+        {
+          "name": "Limit requests per minute",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Prevent brute force login attacks",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/auth/login",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "auth",
+                "login"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "const jsonData = pm.response.json();",
+                  "if (jsonData && jsonData.data && jsonData.data.token) {",
+                  "    pm.collectionVariables.set(\"token\", jsonData.data.token);",
+                  "    console.log(\"Token automatically saved to collection variables!\");",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Limit account registration requests",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/auth/register",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "auth",
+                "register"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "const jsonData = pm.response.json();",
+                  "if (jsonData && jsonData.data && jsonData.data.token) {",
+                  "    pm.collectionVariables.set(\"token\", jsonData.data.token);",
+                  "    console.log(\"Token automatically saved to collection variables!\");",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Limit excessive search requests",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/search/earthquakes",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "search",
+                "earthquakes"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Strict admin route rate limiting",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/admin/dashboard",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "admin",
+                "dashboard"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Protect analytics APIs from abuse",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/analytics/earthquakes",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "analytics",
+                "earthquakes"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Limit CSV export requests",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes/export/csv",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes",
+                "export",
+                "csv"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Limit large file uploads",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes/import-json",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes",
+                "import-json"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Prevent excessive random API hits",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes/random",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes",
+                "random"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Protect statistics APIs",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/stats/earthquakes",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "stats",
+                "earthquakes"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Fetch random earthquake record",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes/random",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes",
+                "random"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Good to Have Routes (HEAD & OPTIONS)",
+      "item": [
+        {
+          "name": "Fetch only headers for earthquake collection",
+          "request": {
+            "method": "HEAD",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Fetch headers for single earthquake resource",
+          "request": {
+            "method": "HEAD",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes",
+                ":id"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Fetch headers for country based earthquake records",
+          "request": {
+            "method": "HEAD",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes/country/:country",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes",
+                "country",
+                ":country"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Check metadata for total earthquake statistics",
+          "request": {
+            "method": "HEAD",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/stats/earthquakes/count",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "stats",
+                "earthquakes",
+                "count"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Fetch analytics response headers only",
+          "request": {
+            "method": "HEAD",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/analytics/earthquakes/highest-magnitude",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "analytics",
+                "earthquakes",
+                "highest-magnitude"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Verify authenticated user session headers",
+          "request": {
+            "method": "HEAD",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/auth/profile",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "auth",
+                "profile"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Check API health status headers only",
+          "request": {
+            "method": "HEAD",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes/system/health",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes",
+                "system",
+                "health"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "List supported methods for earthquake routes",
+          "request": {
+            "method": "OPTIONS",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "List allowed methods for single earthquake route",
+          "request": {
+            "method": "OPTIONS",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes",
+                ":id"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Fetch allowed methods for login endpoint",
+          "request": {
+            "method": "OPTIONS",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/auth/login",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "const jsonData = pm.response.json();",
+                  "if (jsonData && jsonData.data && jsonData.data.token) {",
+                  "    pm.collectionVariables.set(\"token\", jsonData.data.token);",
+                  "    console.log(\"Token automatically saved to collection variables!\");",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Check supported admin route methods",
+          "request": {
+            "method": "OPTIONS",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/admin/earthquakes",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "admin",
+                "earthquakes"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Fetch supported search endpoint methods",
+          "request": {
+            "method": "OPTIONS",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/search/earthquakes",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "search",
+                "earthquakes"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Fetch JWT route communication options",
+          "request": {
+            "method": "OPTIONS",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/jwt/profile",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "jwt",
+                "profile"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Fetch API communication capabilities",
+          "request": {
+            "method": "OPTIONS",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/earthquakes/system/health",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "earthquakes",
+                "system",
+                "health"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://global-earthquakes-a4oc.onrender.com/api",
+      "type": "string"
+    },
+    {
+      "key": "token",
+      "value": "",
+      "type": "string"
+    }
+  ]
+}

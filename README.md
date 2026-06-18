@@ -179,18 +179,123 @@ npm run dev
 
 # 3️⃣ Frontend Setup
 
+### Prerequisites
+
+| Tool | Minimum Version |
+|------|----------------|
+| Node.js | 18.x |
+| npm | 9.x |
+
+---
+
+### Install Dependencies
+
 ```bash
 cd frontend
 npm install
 ```
 
-Run frontend:
+---
+
+### Environment Variables
+
+Create a `.env` file inside `frontend/` (or copy `.env.example`):
+
+```env
+# Backend API base URL — no trailing slash
+VITE_API_URL=http://localhost:5000
+```
+
+> For production, set `VITE_API_URL` to your deployed Render backend URL.
+
+---
+
+### Run Development Server
 
 ```bash
 npm run dev
 ```
 
+Runs at **http://localhost:5173** with HMR enabled.
+
 ---
+
+### Build for Production
+
+```bash
+npm run build
+npm run preview   # preview the production build locally
+```
+
+---
+
+### Frontend Tech Stack
+
+| Layer | Library / Tool | Version |
+|-------|---------------|---------|
+| Framework | React | ^19 |
+| Build Tool | Vite | ^8 |
+| Routing | React Router DOM | ^7 |
+| State Management | Redux Toolkit + React-Redux | ^2 / ^9 |
+| HTTP Client | Axios | ^1 |
+| UI Component Library | Material UI (MUI) | ^9 |
+| Utility CSS | Tailwind CSS | ^3 |
+| CSS-in-JS (MUI) | Emotion (react + styled) | ^11 |
+
+---
+
+### Frontend Source Structure
+
+```
+frontend/
+├── public/
+└── src/
+    ├── app/
+    │   └── store.js              # Redux Toolkit store (empty, ready for slices)
+    ├── config/
+    │   └── constants.js          # Centralized app constants (routes, tokens, etc.)
+    ├── features/                 # Feature slices (auth, earthquake, ui — add here)
+    ├── services/
+    │   └── api/
+    │       └── axiosInstance.js  # Axios base instance + interceptors
+    ├── routes/
+    │   └── index.jsx             # Central route registry (BrowserRouter routes)
+    ├── components/               # Shared reusable UI components
+    ├── pages/                    # Page-level components
+    ├── hooks/                    # Custom React hooks
+    ├── layouts/                  # Layout wrappers (sidebar, navbar, etc.)
+    ├── utils/                    # Helper utilities
+    ├── App.jsx                   # Minimal app shell
+    ├── main.jsx                  # Entry point (StrictMode → Provider → Router)
+    └── index.css                 # Tailwind directives + CSS design tokens
+├── tailwind.config.js            # Tailwind v3 config
+├── vite.config.js                # Vite config (aliases, proxy, chunking)
+├── .env                          # Local environment variables
+└── .env.example                  # Environment variable template
+```
+
+---
+
+### Path Aliases
+
+All `@`-prefixed imports resolve via `vite.config.js`:
+
+| Alias | Resolves To |
+|-------|-------------|
+| `@` | `src/` |
+| `@app` | `src/app/` |
+| `@config` | `src/config/` |
+| `@services` | `src/services/` |
+| `@routes` | `src/routes/` |
+| `@features` | `src/features/` |
+| `@components` | `src/components/` |
+| `@pages` | `src/pages/` |
+| `@hooks` | `src/hooks/` |
+| `@utils` | `src/utils/` |
+| `@layouts` | `src/layouts/` |
+
+---
+
 
 # 🔐 Authentication System
 

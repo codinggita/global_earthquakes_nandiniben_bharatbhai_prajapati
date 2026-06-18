@@ -28,9 +28,9 @@ app.get('/health', (_req, res) => {
 // ── API routes ───────────────────────────────────────────────────────────────
 // Rate limiters are applied per-prefix so every current and future route
 // under that prefix is automatically protected.
-app.use('/earthquakes', searchLimiter,   require('./routes/earthquakeRoutes'));
-app.use('/auth',        authLimiter,     require('./routes/authRoutes'));
-app.use('/analytics',   analyticsLimiter, require('./routes/analyticsRoutes'));
+app.use('/api/earthquakes', searchLimiter,   require('./routes/earthquakeRoutes'));
+app.use('/api/auth',        authLimiter,     require('./routes/authRoutes'));
+app.use('/api/analytics',   analyticsLimiter, require('./routes/analyticsRoutes'));
 
 // ── Error Handling ───────────────────────────────────────────────────────────
 const { notFound, errorHandler } = require('./middlewares/errorMiddleware');
