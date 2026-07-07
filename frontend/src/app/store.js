@@ -1,29 +1,19 @@
 import { configureStore } from '@reduxjs/toolkit';
+import authReducer from '@features/auth/authSlice';
+import uiReducer   from '@features/ui/uiSlice';
 
-/**
- * Redux Toolkit store — foundation only.
- *
- * Feature slices will be added here as the application grows:
- *   import authReducer      from '@features/auth/authSlice';
- *   import earthquakeReducer from '@features/earthquake/earthquakeSlice';
- *   import uiReducer        from '@features/ui/uiSlice';
- *
- * Middleware extensions (e.g. logger) also go in the middleware array.
- */
 const store = configureStore({
   reducer: {
-    // Feature reducers will be registered here
-    // auth:       authReducer,
-    // earthquake: earthquakeReducer,
-    // ui:         uiReducer,
+    auth: authReducer,
+    ui:   uiReducer,
+    // earthquake: earthquakeReducer  ← added in Batch 3
   },
 
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {
-        // Ignore non-serializable values in specific action/state paths
         ignoredActions: [],
-        ignoredPaths: [],
+        ignoredPaths:   [],
       },
     }),
 
