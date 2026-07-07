@@ -14,6 +14,39 @@ export const fetchEarthquakes = createAsyncThunk(
   }
 );
 
+export const createEarthquake = createAsyncThunk(
+  'earthquake/create',
+  async (data, { rejectWithValue }) => {
+    try {
+      return await earthquakeService.create(data);
+    } catch (err) {
+      return rejectWithValue(err.response?.data?.message || 'Failed to create earthquake');
+    }
+  }
+);
+
+export const updateEarthquake = createAsyncThunk(
+  'earthquake/update',
+  async ({ id, data }, { rejectWithValue }) => {
+    try {
+      return await earthquakeService.update(id, data);
+    } catch (err) {
+      return rejectWithValue(err.response?.data?.message || 'Failed to update earthquake');
+    }
+  }
+);
+
+export const deleteEarthquake = createAsyncThunk(
+  'earthquake/delete',
+  async (id, { rejectWithValue }) => {
+    try {
+      return await earthquakeService.delete(id);
+    } catch (err) {
+      return rejectWithValue(err.response?.data?.message || 'Failed to delete earthquake');
+    }
+  }
+);
+
 export const fetchDashboardData = createAsyncThunk(
   'earthquake/fetchDashboardData',
   async (_, { rejectWithValue }) => {
