@@ -14,6 +14,7 @@ const DashboardPage   = lazy(() => import('@pages/dashboard/DashboardPage'));
 const EarthquakesPage = lazy(() => import('@pages/earthquakes/EarthquakesPage'));
 const AnalyticsPage   = lazy(() => import('@pages/analytics/AnalyticsPage'));
 const ProfilePage     = lazy(() => import('@pages/profile/ProfilePage'));
+const SettingsPage    = lazy(() => import('@pages/settings/SettingsPage'));
 
 // ── Fallback while lazy chunk is loading ──────────────────────────────────────
 const PageLoader = () => (
@@ -55,6 +56,10 @@ const AppRoutes = () => (
         <Route
           path={ROUTES.PROFILE}
           element={<Suspense fallback={<PageLoader />}><ProfilePage /></Suspense>}
+        />
+        <Route
+          path={ROUTES.SETTINGS}
+          element={<Suspense fallback={<PageLoader />}><SettingsPage /></Suspense>}
         />
       </Route>
     </Route>

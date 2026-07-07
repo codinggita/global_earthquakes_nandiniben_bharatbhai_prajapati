@@ -8,6 +8,7 @@ const NAV_ITEMS = [
   { to: ROUTES.EARTHQUAKES, icon: '🗺️', label: 'Earthquakes' },
   { to: ROUTES.ANALYTICS,   icon: '📊', label: 'Analytics'   },
   { to: ROUTES.PROFILE,     icon: '👤', label: 'Profile'     },
+  { to: ROUTES.SETTINGS,    icon: '⚙️', label: 'Settings'    },
 ];
 
 const Sidebar = () => {

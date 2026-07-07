@@ -37,6 +37,7 @@ export const ROUTES = {
   EARTHQUAKES: '/earthquakes',
   ANALYTICS: '/analytics',
   PROFILE: '/profile',
+  SETTINGS: '/settings',
   NOT_FOUND: '*',
 };
 
