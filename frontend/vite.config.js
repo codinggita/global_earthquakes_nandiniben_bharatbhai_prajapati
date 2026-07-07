@@ -28,7 +28,6 @@ export default defineConfig({
       '/api': {
         target: process.env.VITE_API_URL || 'http://localhost:5000',
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, ''),
       },
     },
   },
@@ -40,9 +39,10 @@ export default defineConfig({
       output: {
         manualChunks: (id) => {
           if (id.includes('node_modules')) {
-            if (id.includes('@mui') || id.includes('@emotion')) return 'mui';
+            if (id.includes('recharts') || id.includes('d3')) return 'charts';
             if (id.includes('react-router')) return 'router';
             if (id.includes('@reduxjs') || id.includes('react-redux')) return 'redux';
+            if (id.includes('formik') || id.includes('yup')) return 'forms';
             if (id.includes('react-dom') || id.includes('react/')) return 'vendor';
           }
         },

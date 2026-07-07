@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { selectUser } from '@features/auth/authSlice';
 import { toastSuccess, toastInfo } from '@features/ui/uiSlice';
+import PageSEO from '@components/ui/PageSEO';
 
 const ProfilePage = () => {
   const user = useSelector(selectUser);
@@ -17,6 +18,7 @@ const ProfilePage = () => {
 
   return (
     <div className="flex flex-col gap-6 max-w-4xl mx-auto w-full">
+      <PageSEO title="My Profile" description="Manage your account profile" />
       {/* Header */}
       <div>
         <h2 className="text-2xl font-bold text-slate-100">Your Profile</h2>
