@@ -1,12 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
 import authReducer from '@features/auth/authSlice';
 import uiReducer   from '@features/ui/uiSlice';
+import earthquakeReducer from '@features/earthquake/earthquakeSlice';
 
 const store = configureStore({
   reducer: {
     auth: authReducer,
     ui:   uiReducer,
-    // earthquake: earthquakeReducer  ← added in Batch 3
+    earthquake: earthquakeReducer,
   },
 
   middleware: (getDefaultMiddleware) =>
