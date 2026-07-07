@@ -1,14 +1,14 @@
-import useStats from '@hooks/useStats';
-import StatsGrid from '@components/analytics/StatsGrid';
 import MonthlyTrend from '@components/analytics/MonthlyTrend';
 import TypeDistribution from '@components/analytics/TypeDistribution';
 import CountryChart from '@components/analytics/CountryChart';
+import PageSEO from '@components/ui/PageSEO';
 
 const AnalyticsPage = () => {
   const { data, loading, error, refetch } = useStats();
 
   return (
     <div className="flex flex-col gap-6 max-w-7xl mx-auto w-full">
+      <PageSEO title="Analytics" description="View global earthquake analytics and trends" />
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>

@@ -51,21 +51,21 @@ export const fetchDashboardData = createAsyncThunk(
   'earthquake/fetchDashboardData',
   async (_, { rejectWithValue }) => {
     try {
-      const [recent, critical, count, highestMag, avgDepth] = await Promise.all([
+      const [recent, critical, globalStats] = await Promise.all([
         earthquakeService.getRecent(),
         earthquakeService.getCritical(),
-        statsService.getCount(),
-        statsService.getHighestMagnitude(),
-        statsService.getAverageDepth(),
+        statsService.getGlobalStats(),
       ]);
+
+      const statsData = globalStats.data || globalStats;
 
       return {
         recent: recent.data || recent,
         critical: critical.data || critical,
         stats: {
-          total: count.count || count.data?.count || 0,
-          highestMag: highestMag.magnitude || highestMag.data?.magnitude || 0,
-          avgDepth: avgDepth.averageDepth || avgDepth.data?.averageDepth || 0,
+          total: statsData.totalCount || 0,
+          highestMag: statsData.highestMagnitude || 0,
+          avgDepth: statsData.averageDepth || 0,
         }
       };
     } catch (err) {

@@ -4,12 +4,14 @@ import StatCard from '@components/dashboard/StatCard';
 import RecentEarthquakes from '@components/dashboard/RecentEarthquakes';
 import ActivityFeed from '@components/dashboard/ActivityFeed';
 import MagnitudeBreakdown from '@components/dashboard/MagnitudeBreakdown';
+import PageSEO from '@components/ui/PageSEO';
 
 const DashboardPage = () => {
   const { recent, critical, stats, loading, error, refreshDashboard } = useEarthquakes(true, true);
 
   return (
     <div className="flex flex-col gap-6 max-w-7xl mx-auto w-full">
+      <PageSEO title="Dashboard" description="Overview of the latest global earthquake events" />
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>

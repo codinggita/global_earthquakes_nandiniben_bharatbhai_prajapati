@@ -5,11 +5,11 @@ import useEarthquakes from '@hooks/useEarthquakes';
 
 import EarthquakeFilters from '@components/earthquakes/EarthquakeFilters';
 import EarthquakeTable from '@components/earthquakes/EarthquakeTable';
-import EarthquakeModal from '@components/earthquakes/EarthquakeModal';
 import DeleteConfirmModal from '@components/earthquakes/DeleteConfirmModal';
 import Pagination from '@components/ui/Pagination';
 import SkeletonLoader from '@components/ui/SkeletonLoader';
 import EmptyState from '@components/ui/EmptyState';
+import PageSEO from '@components/ui/PageSEO';
 
 const EarthquakesPage = () => {
   const dispatch = useDispatch();
@@ -93,6 +93,7 @@ const EarthquakesPage = () => {
 
   return (
     <div className="flex flex-col gap-6 max-w-7xl mx-auto w-full">
+      <PageSEO title="Earthquakes Database" description="Search and manage earthquake records" />
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>

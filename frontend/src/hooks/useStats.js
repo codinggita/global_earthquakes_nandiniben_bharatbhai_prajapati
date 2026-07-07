@@ -25,33 +25,28 @@ const useStats = () => {
     try {
       // Fetch all analytics data in parallel
       const [
-        monthly, type, country, network, 
-        count, highestMag, avgDepth, avgMag, deepest, reviewed
+        monthly, country, highest, global
       ] = await Promise.all([
         statsService.getMonthlyCount(),
-        statsService.getTypeCount(),
         statsService.getCountryCount(),
-        statsService.getNetworkCount(),
-        statsService.getCount(),
-        statsService.getHighestMagnitude(),
-        statsService.getAverageDepth(),
-        statsService.getAverageMagnitude(),
-        statsService.getDeepest(),
-        statsService.getReviewedCount(),
+        statsService.getHighestMagnitude(10),
+        statsService.getGlobalStats()
       ]);
+
+      const globalData = global.data || global;
 
       setData({
         monthlyCount: monthly.data || monthly,
-        typeCount: type.data || type,
+        typeCount: [], // Type count not supported natively by this backend
         countryCount: country.data || country,
-        networkCount: network.data || network,
+        networkCount: [], // Not supported
         summary: {
-          count: count.count || count.data?.count || 0,
-          highestMag: highestMag.magnitude || highestMag.data?.magnitude || 0,
-          avgDepth: avgDepth.averageDepth || avgDepth.data?.averageDepth || 0,
-          avgMag: avgMag.averageMagnitude || avgMag.data?.averageMagnitude || 0,
-          deepest: deepest.depth || deepest.data?.depth || 0,
-          reviewed: reviewed.count || reviewed.data?.count || 0
+          count: globalData.totalCount || 0,
+          highestMag: globalData.highestMagnitude || 0,
+          avgDepth: globalData.averageDepth || 0,
+          avgMag: globalData.averageMagnitude || 0,
+          deepest: globalData.deepestEarthquake || 0,
+          reviewed: 0 // Not supported
         }
       });
     } catch (err) {
