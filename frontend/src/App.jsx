@@ -1,19 +1,15 @@
-import AppRoutes from '@routes';
+import AppRoutes     from '@routes';
+import ToastContainer from '@components/ui/Toast';
 
 /**
- * App.jsx — Minimal application shell.
- *
- * Responsibilities:
- *   - Renders the central route registry (AppRoutes)
- *
- * Future additions (add here as features are built):
- *   - <ThemeProvider>      — MUI theme context
- *   - <ToastContainer>     — global toast notifications
- *   - <ErrorBoundary>      — top-level error catching
- *   - Layout wrappers      — persistent nav / sidebar
+ * App.jsx — Application shell.
+ * Renders route registry + global UI layers (toasts).
  */
-const App = () => {
-  return <AppRoutes />;
-};
+const App = () => (
+  <>
+    <AppRoutes />
+    <ToastContainer />
+  </>
+);
 
 export default App;
