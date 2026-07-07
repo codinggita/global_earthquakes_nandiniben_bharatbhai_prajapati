@@ -21,6 +21,26 @@ const statsService = {
     const res = await axiosInstance.get('/stats/earthquakes/type-count');
     return res.data;
   },
+  getAverageMagnitude: async () => {
+    const res = await axiosInstance.get('/stats/earthquakes/average-magnitude');
+    return res.data;
+  },
+  getDeepest: async () => {
+    const res = await axiosInstance.get('/stats/earthquakes/deepest');
+    return res.data;
+  },
+  getCountryCount: async () => {
+    const res = await axiosInstance.get('/stats/earthquakes/country-count');
+    return res.data;
+  },
+  getNetworkCount: async () => {
+    const res = await axiosInstance.get('/stats/earthquakes/network-count');
+    return res.data;
+  },
+  getReviewedCount: async () => {
+    const res = await axiosInstance.get('/stats/earthquakes/reviewed-count');
+    return res.data;
+  },
 };
 
 export default statsService;
