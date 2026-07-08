@@ -64,7 +64,7 @@ export const fetchDashboardData = createAsyncThunk(
         critical: critical.data || critical,
         stats: {
           total: statsData.totalCount || 0,
-          highestMag: statsData.highestMagnitude || 0,
+          highestMag: statsData.highestMagnitude?.magnitude || 0,
           avgDepth: statsData.averageDepth || 0,
         }
       };
@@ -74,15 +74,17 @@ export const fetchDashboardData = createAsyncThunk(
   }
 );
 
-// ── Initial State ─────────────────────────────────────────────────────────────
 const initialState = {
   list: [],
-  pagination: { page: 1, limit: 10, total: 0, totalPages: 0 },
+  pagination: { page: 1, limit: 10, total: 0, totalPages: 0, hasNext: false, hasPrev: false },
   recent: [],
   critical: [],
   stats: { total: 0, highestMag: 0, avgDepth: 0 },
-  loading: false,
+  loading: false,          // skeleton on first load of earthquake list
+  listLoading: false,      // overlay spinner when changing pages
+  dashboardLoading: false, // loading state for dashboard (won't affect earthquake table)
   error: null,
+  dashboardError: null,
 };
 
 // ── Slice ────────────────────────────────────────────────────────────────────
@@ -96,36 +98,50 @@ const earthquakeSlice = createSlice({
     builder
       // fetchEarthquakes
       .addCase(fetchEarthquakes.pending, (state) => {
-        state.loading = true;
         state.error = null;
+        // If list is already populated, use listLoading (overlay) instead of clearing the table
+        if (state.list.length === 0) {
+          state.loading = true;
+        } else {
+          state.listLoading = true;
+        }
       })
       .addCase(fetchEarthquakes.fulfilled, (state, action) => {
         state.loading = false;
-        // Adjust based on actual backend response format (e.g., action.payload.data vs action.payload)
-        state.list = action.payload.data || action.payload;
+        state.listLoading = false;
+        state.list = action.payload.data || [];
+        // Normalize backend pagination keys to frontend expected keys
         if (action.payload.pagination) {
-          state.pagination = action.payload.pagination;
+          const p = action.payload.pagination;
+          state.pagination = {
+            page: p.currentPage || p.page || 1,
+            totalPages: p.totalPages || 1,
+            total: p.totalRecords || p.total || 0,
+            hasNext: p.hasNext || false,
+            hasPrev: p.hasPrev || false,
+          };
         }
       })
       .addCase(fetchEarthquakes.rejected, (state, action) => {
         state.loading = false;
+        state.listLoading = false;
         state.error = action.payload;
       })
       
-      // fetchDashboardData
+      // fetchDashboardData — uses its own loading flag, doesn't touch list loading
       .addCase(fetchDashboardData.pending, (state) => {
-        state.loading = true;
-        state.error = null;
+        state.dashboardLoading = true;
+        state.dashboardError = null;
       })
       .addCase(fetchDashboardData.fulfilled, (state, action) => {
-        state.loading = false;
+        state.dashboardLoading = false;
         state.recent = action.payload.recent;
         state.critical = action.payload.critical;
         state.stats = action.payload.stats;
       })
       .addCase(fetchDashboardData.rejected, (state, action) => {
-        state.loading = false;
-        state.error = action.payload;
+        state.dashboardLoading = false;
+        state.dashboardError = action.payload;
       });
   },
 });

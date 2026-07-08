@@ -1,25 +1,14 @@
 import { ResponsiveContainer, BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid } from 'recharts';
 
 const MonthlyTrend = ({ data, loading }) => {
-  // Format data for chart
-  const formattedData = Array.isArray(data) ? data.map(item => {
-    // Depending on backend, month might be a number (1-12) or an object {_id: { month, year }, count}
-    let name = '';
-    let count = 0;
-    
-    if (item._id && item._id.month) {
-      const date = new Date();
-      date.setMonth(item._id.month - 1);
-      name = date.toLocaleString('default', { month: 'short' });
-      count = item.count;
-    } else {
-      // Fallback
-      name = item.month || item.name || 'Unknown';
-      count = item.count || item.value || 0;
-    }
-    
-    return { name, count };
-  }) : [];
+  // Backend returns: [{ earthquakeCount, maxMagnitude, year, month, avgMagnitude, monthName, period }]
+  const formattedData = Array.isArray(data) ? data.map(item => ({
+    name: item.monthName
+      ? `${item.monthName.slice(0, 3)} ${item.year}`   // "Dec 2015"
+      : item.period || item.name || 'Unknown',
+    count: item.earthquakeCount || item.count || item.value || 0,
+    avgMag: item.avgMagnitude || 0,
+  })) : [];
 
   return (
     <div className="bg-slate-900/60 backdrop-blur-xl border border-slate-800 rounded-2xl p-6 shadow-lg h-full flex flex-col">
