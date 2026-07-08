@@ -1,19 +1,24 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import SearchBar from '@components/ui/SearchBar';
 
 const EarthquakeFilters = ({ onFilterChange, currentFilters }) => {
-  const [filters, setFilters] = useState(currentFilters || {
+  const [filters, setFilters] = useState({
     search: '',
     minMag: '',
     status: '',
     sort: '-time'
   });
 
-  const handleChange = (key, value) => {
-    const updated = { ...filters, [key]: value };
-    setFilters(updated);
-    onFilterChange(updated);
-  };
+  const handleChange = useCallback((key, value) => {
+    setFilters(prev => {
+      if (prev[key] === value) return prev; // no-op if same value
+      const updated = { ...prev, [key]: value };
+      onFilterChange(updated);
+      return updated;
+    });
+  }, [onFilterChange]);
+
+  const handleSearch = useCallback((val) => handleChange('search', val), [handleChange]);
 
   return (
     <div className="flex flex-col md:flex-row gap-4 justify-between items-start md:items-center bg-slate-900/40 p-4 rounded-xl border border-slate-800/60 mb-6">
@@ -21,7 +26,7 @@ const EarthquakeFilters = ({ onFilterChange, currentFilters }) => {
       <div className="w-full md:w-auto flex-1">
         <SearchBar 
           placeholder="Search by location..." 
-          onSearch={(val) => handleChange('search', val)} 
+          onSearch={handleSearch} 
         />
       </div>
 

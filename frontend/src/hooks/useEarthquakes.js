@@ -8,6 +8,7 @@ import {
 const useEarthquakes = (fetchOnMount = false, dashboardData = false) => {
   const dispatch = useDispatch();
   const data = useSelector(selectEarthquakeData);
+  const { list, pagination, loading, listLoading, error, recent, critical, stats } = data;
 
   useEffect(() => {
     if (fetchOnMount) {

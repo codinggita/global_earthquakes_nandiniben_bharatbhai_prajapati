@@ -1,10 +1,11 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import { toastSuccess, toastError } from '@features/ui/uiSlice';
 import useEarthquakes from '@hooks/useEarthquakes';
 
 import EarthquakeFilters from '@components/earthquakes/EarthquakeFilters';
 import EarthquakeTable from '@components/earthquakes/EarthquakeTable';
+import EarthquakeModal from '@components/earthquakes/EarthquakeModal';
 import DeleteConfirmModal from '@components/earthquakes/DeleteConfirmModal';
 import Pagination from '@components/ui/Pagination';
 import SkeletonLoader from '@components/ui/SkeletonLoader';
@@ -14,9 +15,9 @@ import PageSEO from '@components/ui/PageSEO';
 const EarthquakesPage = () => {
   const dispatch = useDispatch();
   const { 
-    list, pagination, loading, error, 
+    list, pagination, loading, listLoading, error, 
     loadMore, createRecord, updateRecord, deleteRecord 
-  } = useEarthquakes(false); // don't fetch on mount automatically without filters
+  } = useEarthquakes(false);
 
   const [filters, setFilters] = useState({ page: 1, limit: 10, sort: '-time' });
   const [modalOpen, setModalOpen] = useState(false);
@@ -30,13 +31,13 @@ const EarthquakesPage = () => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filters]);
 
-  const handleFilterChange = (newFilters) => {
-    setFilters({ ...filters, ...newFilters, page: 1 }); // reset to page 1 on new filter
-  };
+  const handleFilterChange = useCallback((newFilters) => {
+    setFilters(prev => ({ ...prev, ...newFilters, page: 1 }));
+  }, []);
 
-  const handlePageChange = (page) => {
-    setFilters({ ...filters, page });
-  };
+  const handlePageChange = useCallback((page) => {
+    setFilters(prev => ({ ...prev, page }));
+  }, []);
 
   const handleCreateNew = () => {
     setSelectedItem(null);
@@ -119,7 +120,16 @@ const EarthquakesPage = () => {
       )}
 
       {/* Main Content Area */}
-      <div className="bg-slate-900/60 backdrop-blur-xl border border-slate-800 rounded-2xl shadow-lg flex flex-col overflow-hidden min-h-[400px]">
+      <div className="bg-slate-900/60 backdrop-blur-xl border border-slate-800 rounded-2xl shadow-lg flex flex-col overflow-hidden min-h-[400px] relative">
+        {/* Overlay spinner when switching pages (keeps existing rows visible) */}
+        {listLoading && (
+          <div className="absolute inset-0 z-10 flex items-center justify-center bg-slate-900/60 backdrop-blur-sm rounded-2xl">
+            <div className="flex flex-col items-center gap-3">
+              <div className="w-8 h-8 border-4 border-blue-500 border-t-transparent rounded-full animate-spin" />
+              <span className="text-slate-400 text-sm">Loading page…</span>
+            </div>
+          </div>
+        )}
         {loading ? (
           <div className="p-6">
             <SkeletonLoader count={8} />
@@ -140,8 +150,8 @@ const EarthquakesPage = () => {
             />
             
             <Pagination 
-              currentPage={pagination.page} 
-              totalPages={pagination.totalPages} 
+              currentPage={pagination.page || 1} 
+              totalPages={pagination.totalPages || 1} 
               onPageChange={handlePageChange} 
             />
           </>

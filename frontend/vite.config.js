@@ -26,8 +26,9 @@ export default defineConfig({
     port: 5173,
     proxy: {
       '/api': {
-        target: process.env.VITE_API_URL || 'http://localhost:5000',
+        target: 'https://global-earthquakes-a4oc.onrender.com',
         changeOrigin: true,
+        secure: false,
       },
     },
   },

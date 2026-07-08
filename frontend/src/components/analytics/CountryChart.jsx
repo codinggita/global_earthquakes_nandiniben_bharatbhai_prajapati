@@ -1,13 +1,14 @@
 import { ResponsiveContainer, BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid } from 'recharts';
 
 const CountryChart = ({ data, loading }) => {
-  // Take top 10 countries
+  // Backend returns: [{ country, earthquakeCount, maxMagnitude, avgMagnitude }]
   const formattedData = Array.isArray(data) ? data
     .map(item => ({
-      name: item._id || item.country || item.name || 'Unknown',
-      count: item.count || item.value || 0
+      name: item.country || item._id || item.name || 'Unknown',
+      count: item.earthquakeCount || item.count || item.value || 0,
+      avgMag: item.avgMagnitude || 0,
     }))
-    .filter(item => item.name && item.name !== 'Unknown')
+    .filter(item => item.name && item.name !== 'Unknown' && item.name !== 'null')
     .sort((a, b) => b.count - a.count)
     .slice(0, 10) : [];
 

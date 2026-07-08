@@ -1,3 +1,5 @@
+import useStats from '@hooks/useStats';
+import StatsGrid from '@components/analytics/StatsGrid';
 import MonthlyTrend from '@components/analytics/MonthlyTrend';
 import TypeDistribution from '@components/analytics/TypeDistribution';
 import CountryChart from '@components/analytics/CountryChart';
